@@ -134,3 +134,42 @@ class ShopCard extends StatelessWidget {
   }
 }
 ```
+
+<h2>Statefull and Stateless Widget</h2>
+
+Stateless Widget
+- bersifat immutable; setelah terbentuk untuk pertama kali tidak dapat diubah lagi.
+- Tidak memiliki state yang bisa diubah-ubah dalam dirinya sendiri. Semua 'perubahan' terjadi secara eksternal dan meliputi pembuatan ulang widget dari awal.
+- Lebih efisien karena tidak harus mengakomodasi perubahan state.
+- Baik digunakan untuk UI yang bersifat tetap, seperti logo, atau text.
+
+Stateful Widget
+- bersifat mutable; dapat berubah seiring berjalannya waktu
+- Baik digunakan untuk widget yang dapat berubah baik melalui interaksi dengan user maupun dengan database.
+- Berisi 2 komponen: StatefulWidget yang bersifat mutable, mempertahankan identitas widget, dan objek State yang dapat di-recreate jika terjadi perubahan
+
+<h2>Widget yang digunakan dalam Tugas</h2>
+
+```menu.dart```:
+
+1) ```MyHomePage```: widget top-level yang merupakan Stateless Widget
+2) ```Scaffold```: widget yang membentuk struktur dasar aplikasi (app bar & body)
+3) ```AppBar```: bar yang berada di bagian atas tampilan yang berisi judul aplikasi
+4) ```SingleChildScrollView```: widget yang memungkinkan scrolling layar
+5) ```Padding```: Memberikan padding pada widget childnya
+6) ```Column```: Membuat childrennya ditampilkan secara vertikal
+7) ```Text```: Widget untuk menampilkan teks
+8) ```GridView.count```: menentukan berapa kolom yang ada
+9) ```ShopCard```: sebuah Stateless Widget
+10) ```Material```: menentukan warna background yakni ```Colors.indigo```
+11) ```InkWell```: widget yang membuat area yang dapat diklik.
+12) ```SnackBar```: pesan yang muncul dari bawah layar
+13) ```Container```: widget untuk menaruh icon dan text
+14) ```Icons```: built-in icon dari Flutter
+
+```main.dart```:
+1) ```MyApp```: root widget dari aplikasi
+2) ```MaterialApp```: widget yang men-set judul, theme, dan route dari aplikasi
+3) ```title```: judul
+4) ```theme```: menentukan palet warna yang digunakan
+5) ```home```: menentukan halaman mana yang akan ditampilkan saat aplikasi baru dijalankan
