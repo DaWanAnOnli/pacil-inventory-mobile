@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pacil_inventory/screens/inventory_list_form.dart';
+import 'package:pacil_inventory/widgets/left_drawer.dart';
+import 'package:pacil_inventory/widgets/inv_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
-  final List<ShopItem> items = [
-    ShopItem("Lihat Item", Icons.list_alt_rounded, Colors.red),
-    ShopItem("Tambah Item", Icons.add_box_rounded, Colors.green),
-    ShopItem("Logout", Icons.logout, Colors.blue),
+  final List<InventoryItem> items = [
+    InventoryItem("Lihat Item", Icons.list_alt_rounded, Colors.red),
+    InventoryItem("Tambah Item", Icons.add_box_rounded, Colors.green),
+    InventoryItem("Logout", Icons.logout, Colors.blue),
 ];
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -20,11 +23,18 @@ class MyHomePage extends StatelessWidget {
  @override
     Widget build(BuildContext context) {
         return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Shopping List',
-        ),
-      ),
+  appBar: AppBar(
+    title: const Text(
+      'Pacil Inventory',
+    ),
+    backgroundColor: Colors.indigo,
+    foregroundColor: Colors.white,
+  ),
+  // Masukkan drawer sebagai parameter nilai drawer dari widget Scaffold
+  drawer: const LeftDrawer(),
+      
+
+
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
         child: Padding(
@@ -36,7 +46,7 @@ class MyHomePage extends StatelessWidget {
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                 // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                 child: Text(
-                  'PBP Shop', // Text yang menandakan toko
+                  'Pacil Inventory', // Text yang menandakan toko
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -53,9 +63,9 @@ class MyHomePage extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisCount: 3,
                 shrinkWrap: true,
-                children: items.map((ShopItem item) {
+                children: items.map((InventoryItem item) {
                   // Iterasi untuk setiap item
-                  return ShopCard(item);
+                  return InventoryCard(item);
                 }).toList(),
               ),
             ],
@@ -68,23 +78,17 @@ class MyHomePage extends StatelessWidget {
     }
 }
 
-class ShopItem {
-  final String name;
-  final IconData icon;
-  final Color color;
 
-  ShopItem(this.name, this.icon, this.color);
-}
 
-class ShopCard extends StatelessWidget {
-  final ShopItem item;
+class InventoryCard extends StatelessWidget {
+  final InventoryItem item;
 
-  const ShopCard(this.item, {super.key}); // Constructor
+  const InventoryCard(this.item, {super.key}); // Constructor
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: item.color,
+      color: Colors.indigo,
       child: InkWell(
         // Area responsive terhadap sentuhan
         onTap: () {
@@ -93,6 +97,12 @@ class ShopCard extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
+            
+          // Navigate ke route yang sesuai (tergantung jenis tombol)
+    if (item.name == "Tambah Item") {
+      Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const InventoryFormPage()));
+    }
         },
         child: Container(
           // Container untuk menyimpan Icon dan Text
@@ -120,3 +130,4 @@ class ShopCard extends StatelessWidget {
     );
   }
 }
+
