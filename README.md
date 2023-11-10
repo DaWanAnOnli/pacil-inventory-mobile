@@ -568,5 +568,15 @@ Berikut multi-child layout widgets lainnya:
 6. onChanged: digunakan untuk mendeteksi setiap perubahan pada form. Berguna untuk real-time validation, misal memberitahu user jika tipe karakter yang digunakan untuk input tidak sesuai
 7. validator: berguna untuk mem-validasi input saat submit. Contoh ada form yang kosong.
 
-<h2>Elemen Input</h2>
+<h2>Flutter Clean Architecture</h2>
+
+Clean Architecture bukanlah konsep eksklusif dari flutter, namun merupakan prinsip pengembangan software yang mementingkan separation of concerns. Di flutter, clean architecture terdiri atas tiga aspek: Presentation Layer (UI), Domain Layer (business logic), dan Data Layer (Storage & Database). Berikut cara mengimplementasikan clean architecture pada Flutter:
+
+1. Presentation Layer: semua route disatukan di dalam folder bernama ```screens```. File-file route berisi widget-widget yang disertai dengan handler untuk user-interaction.
+
+2. Domain Layer: semua file yang berhubungan dengan domain layer disatukan dalam folder ```domain```. File-file ini berisi class-class yang mendefinisikan objek-objek yang ada dalam aplikasi, dengan variabel dan method masing-masing.
+
+3. Data Layer: semua file yang berhubungan dengan data layer disatukan dalam folder ```data```. Jika menggunakan data eksternal, buat juga folder ```repositories```. File dalam folder-folder ini berisi implementasi pengambilan dan penyimpanan data ke storage.
+
+
 
