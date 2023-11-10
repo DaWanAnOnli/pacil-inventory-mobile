@@ -173,3 +173,101 @@ Stateful Widget
 3) ```title```: judul
 4) ```theme```: menentukan palet warna yang digunakan
 5) ```home```: menentukan halaman mana yang akan ditampilkan saat aplikasi baru dijalankan
+
+<h1>Tugas 8</h1>
+
+<h2>Implementasi Checklist</h2>
+
+1) Masuk ke dalam directory ```pacil_inventory/lib```. Lalu buat directory baru bernama ```widgets```, lalu masuk ke dalamnya. Di dalam ```widgets```, buat file baru bernama ```left_drawer.dart```. Isi dengan code berikut:
+```
+import 'package:flutter/material.dart';
+
+class LeftDrawer extends StatelessWidget {
+  const LeftDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: [
+          const DrawerHeader(
+            // TODO: Bagian drawer header
+          ),
+          // TODO: Bagian routing
+        ],
+      ),
+    );
+  }
+}
+```
+bagian-bagian ```TODO``` akan diisi pada step-step berikutnya.
+
+2. Masih di file yang sama, tambahkan import-import berikut di bagian atas file:
+```
+import 'package:flutter/material.dart';
+import 'package:pacil_inventory/menu.dart';
+// TODO: Impor halaman InventoryFormPage jika sudah dibuat
+```
+
+3. Isi bagian ```TODO: Bagian drawer header``` dengan code berikut:
+```
+...
+ListTile(
+  leading: const Icon(Icons.home_outlined),
+  title: const Text('Halaman Utama'),
+  // Bagian redirection ke MyHomePage
+  onTap: () {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MyHomePage(),
+        ));
+  },
+),
+ListTile(
+  leading: const Icon(Icons.add_shopping_cart),
+  title: const Text('Tambah Produk'),
+  // Bagian redirection ke ShopFormPage
+  onTap: () {
+    /*
+    TODO: Buatlah routing ke ShopFormPage di sini,
+    setelah halaman ShopFormPage sudah dibuat.
+    */
+  },
+),
+...
+```
+
+3. Sekarang, tambahkan code berikut di bagian ```TODO: Bagian drawer header```.
+```
+const DrawerHeader(
+  decoration: BoxDecoration(
+    color: Colors.indigo,
+  ),
+  child: Column(
+    children: [
+      Text(
+        'Pacil Inventory',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+      Padding(padding: EdgeInsets.all(10)),
+      Text("Catat seluruh keperluan inventory-mu di sini!",
+          textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.normal,
+          color: Colors.white,
+          ),
+      ),
+    ],
+  ),
+),
+```
+
+4. Sekarang, di file menu.dart, masukkan code berikut:
+
