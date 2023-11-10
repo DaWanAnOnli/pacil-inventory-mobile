@@ -558,4 +558,15 @@ Berikut multi-child layout widgets lainnya:
 11. Table
 12. Wrap
 
+<h2>Elemen Input</h2>
+
+1. TextFormField: digunakan sebagai tempat untuk memasukkan teks
+2. InputDecoration: Digunakan untuk menambahkan elemen-elemen tambahan pada form input, seperti hintText dan labelText
+3. hintText: menempatkan teks sementara di dalam form yang akan dimasukkan input. Text ini hanya muncul saat form kosong. Digunakan untuk memberitahu user di mana harus memasukkan input.
+4. labelText: menempatkan label di sebelah tempat input. Digunakan untuk memberitahu user apa yang harus diinput. 
+5. OutlineInputBorder: digunakan untuk menambahkan border di sekitar InputDecoration
+6. onChanged: digunakan untuk mendeteksi setiap perubahan pada form. Berguna untuk real-time validation, misal memberitahu user jika tipe karakter yang digunakan untuk input tidak sesuai
+7. validator: berguna untuk mem-validasi input saat submit. Contoh ada form yang kosong.
+
+<h2>Elemen Input</h2>
 
