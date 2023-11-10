@@ -500,3 +500,62 @@ Align(
 ```
 
 10. Pada folder ```lib```, buat folder baru bernama ```screens```. Pindahkan file ```menu.dart``` dan ```inventory_list_form.dart``` ke folder ```screens```. Pastikan IDE dapat melakukan refactor secara otomatis.
+
+
+<h2>Navigator.push() dan Navigator.pushReplacement()</h2>
+
+Perbedaan utama dari ```push()``` dan ```pushReplacement()``` adalah ```push()``` menambah route ke atas tumpukan stack dari route-route yang sudah ada, sementara ```pushReplacement() mengganti route paling atas dari stack dengan route yang baru. Contoh penggunaannya pada aplikasi pacil_inventory adalah di file ```menu.dart``` di mana kita akan mem- ```push()```  route ```InventoryFormPage``` ke dalam stack saat button ```Tambah Item``` ditekan. Hal ini membuat route ```InventoryFormPage``` menimpa route sebelumnya pada layar. Karena kita menggunakan ```push()```, maka jika kita menekan tombol back pada perangkat kita, tampilan akan dialihkan ke route sebelumnya. Namun, jika kita menggunakan pushReplacement(), saat button ```Tambah Item``` di-klik, route yang sekarang sedang ditampilkan (```MyHomePage```) akan di-replace dengan route ```InventoryFormPage```. Sehingga, jika kita menekan tombol back, tampilan tidak akan berpindah pada route ```MyHomePage``` karena tidak ada dalam stack -- kita akan dikeluarkan dari aplikasi.
+
+
+<h2>Layout Widget</h2>
+
+Di Flutter, layout widget terbagi menjadi dua: single-child (hanya dapat memiliki 1 child), dan multi-child (dapat memiliki lebih dari satu child).
+
+<h3>Single-Child Layout Widgets</h3>
+
+Berikut single-child layout widgets yang umum digunakan:
+
+1. Align: mengatur alignment dari childnya
+2. AspectRatio: mengatur ukuran dari childnya berdasarkan rasio tertentu
+3. Baseline: memposisikan childnya sesuai dengan baseline child tersebut, contoh untuk meng-align teks berdasarkan batas bawahnya.
+4. Center: memposisikan childnya tepat di tengah widget ini.
+5. ConstrainedBox: dapat membuat constraint-constraint lain dalam memposisikan childnya.
+6. Container: Widget yang dapat mengatur posisi childnya secara fleksibel
+7. Padding: memposisikan childnya sesuai padding yang diberikan
+8. SizedBox: memaksa childnya untuk memiliki ukuran tertentu
+
+Berikut single-child layout widgets lainnya:
+  
+9. CustomSingleChildLayout
+10. Expanded
+11. FittedBox
+12. FractionallySizedBox
+13. IntrinsicHeight
+14. IntrinsicWidth
+15. LimitedBox
+16. Offstage
+17. OverflowBox
+18. SizedOverflowBox
+19. Transform
+
+<h3>Multi-Child Layout Widgets</h3>
+
+Berikut multi-child layout widgets yang umum digunakan:
+
+1. Column: memposisikan childrennya dalam sumbu vertikal.
+2. GridView: memposisikan childrennya dalam bentuk grid, yang berjalan secara horizontal dan vertikal.
+3. ListView: Dapat discroll, baik untuk meletakkan children yang banyak/tidak mau menempati banyak fixed-space.
+4. Row: memposisikan childrennya dalam sumbu horizontal.
+5. Stack: menempatkan childrennya secara bertumpukkan.
+
+Berikut multi-child layout widgets lainnya:
+
+6. CustomMultiChildLayout
+7. Flow
+8. IndexedStack
+9. LayoutBuilder
+10. ListBody
+11. Table
+12. Wrap
+
+
