@@ -1254,3 +1254,40 @@ routes: {
 },
 ...
 ```
+
+<h2>Pengambilan data JSON tanpa model</h2>
+
+Secara prinsip data JSON dapat diambil tanpa perlu adanya model. Namun hal ini tidak direkomendasikan karena jika demikian data yang diperoleh adalah String, dan pemrosesan data dilakukan seperti layaknya memproses string. Tentu dalam paradigma pemrograman yang modular hal seperti ini bukanlah best practice. Alangkah lebih baik jika data JSON dikonversi menjadi sebuah model terlebih dahulu sehingga pemrosesan data menjadi lebih terstruktur.
+
+<h2>CookieRequest</h2>
+
+CookieRequest digunakan agar aplikasi Flutter dapat menerima cookie dari sever. Hal ini berguna untuk membuat session dari user yang sedang login. CookieRequest perlu dibagikan ke semua komponen agar semua komponen dapat berinteraksi dengan server melalui cookie.Dalam kasus ini, cookies berperan agar user dapat berpindah-pindah route tanpa harus login kembali pada saat setiap kali pindah.
+
+<h2>Mekanisme Pengambilan Data JSON</h2>
+
+1) Aplikasi flutter memanggil halaman web yang berisi string JSON.
+2) String JSON ini dikonversi menjadi JSON object menggunakan function jsonDecode.
+3) JSON object dikonversi menjadi instance dari model yang telah kita definisikan menggunakan method ```NamaModel.fromJson(jsonObject)```
+4) Pemrosesan data dapat dilakukan seperti layaknya model pada Dart.
+
+<h2>Widget yang Digunakan</h2>
+
+1) Provider: tempat untuk menginisialisasi sebuah value yang dapat diakses oleh childnya.
+2) routes: tabel routing top-level untuk seluruh aplikasi. Berisi mapping antara route dan routeName masing-masing.
+3) Navigator: Widget di mana child-childnya disimpan dalam bentuk stack. Biasa digunakan untuk mengatur urutan routing yang dibuka
+4) MaterialPageRoute: Menyediakan transisi saat melakukan perpindahan route.
+5) ScaffoldMessenger: Menyediakan API untuk menampilkan snack bars dan material banners. Dalam kasus ini digunakan untuk snack bars. 
+6) TextEditingController: Memantau setiap perubahan yang terjadi pada suatu input text. 
+7) EdgeInsets: Widget untuk membuat padding
+8) MainAxisAlignment: Mengatur alignment childern berdasarkan axis utama. Dalam kasus ini karena menggunakan Column, maka axis utama yang dimaksud adalah axis vertical. 
+9) AlertDialog: membuat AlertDialog
+10) Future: Placeholder untuk komputasi asinkron yang belum selesai, akan diganti dengan hasil komputasinya jika sudah selesai.
+11) CircularProgressIndicator: membuat circular progress indicator, biasa digunakan sebagai tanda bahwa aplikasi sedang loading.
+12) ListView: membuat array of widget yang dapat discroll jika ruang tidak cukup
+13) GestureDetector: widget yang mendeteksi gestures seperti tap, drag, dsb. 
+14) FutureBuilder: membuat widget yang isinya bergantung dari status terakhir dari widget Future.
+15) AsyncSnapshot: Representasi hasi interaksi terakhir dengan sebuah komputasi asinkron.
+16) TextButton: membuat text button. 
+17) MaterialStateProperty: nilai-nilai yang bergantung pada state material dari sebuah widget.
+
+
